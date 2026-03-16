@@ -5,7 +5,7 @@
 **Certifications:** CompTIA Security+ (2026)
 
 > 🚨 **NOTE:** This repository documents my Tier 1/Tier 2 incident resolution workflows, SLA tracking, and ITIL-aligned service management operations.
-> ➡️ **To see how I architected, built, and secured the underlying hybrid-cloud infrastructure from scratch, view my [Hybrid Enterprise Infrastructure Repository]([INSERT_YOUR_OTHER_REPO_LINK_HERE](https://github.com/chingilik/hybrid-enterprise-infrastructure)).**
+> ➡️ **To see how I architected, built, and secured the underlying hybrid-cloud infrastructure from scratch, view my [Hybrid Enterprise Infrastructure Repository](https://github.com/chingilik/hybrid-enterprise-infrastructure).**
 
 ---
 
