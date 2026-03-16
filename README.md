@@ -4,8 +4,13 @@
 **Location:** Calgary, AB | **Email:** johnalbertbelita@gmail.com  
 **Certifications:** CompTIA Security+ (2026)
 
-> 🚨 **NOTE:** This repository documents my Tier 1/Tier 2 incident resolution workflows, SLA tracking, and ITIL-aligned service management operations.
-> ➡️ **To see how I architected, built, and secured the underlying hybrid-cloud infrastructure from scratch, view my [Hybrid Enterprise Infrastructure Repository](https://github.com/chingilik/hybrid-enterprise-infrastructure).**
+> 🚨 **PORTFOLIO DIRECTORY:** For a more streamlined review experience, the core components of this enterprise lab have been separated into two specialized repositories. Please select the portfolio most relevant to the role you are evaluating:
+> 
+> 🏗️ **[1. Hybrid Enterprise Infrastructure (The "Build")](https://github.com/chingilik/hybrid-enterprise-infrastructure)**
+> *For Systems Administration roles. Documents the architecture, automated deployment (WDS/Intune), and security hardening of the hybrid cloud environment.*
+> 
+> 🚒 **[2. Enterprise Incident Management (The "Support")](https://github.com/chingilik/enterprise-incident-management)**
+> *For Service Desk & MSP Support roles. Documents Tier 1/Tier 2 incident resolution, Jira ITSM workflows, SLAs, and Action1 RMM patch management.*
 
 ---
 
@@ -72,6 +77,25 @@ While building infrastructure demonstrates architectural knowledge, the core of 
 * **Resolution:** Executed a Message Trace within the Exchange Admin Center to track inbound email traffic, verifying network routing success and identifying Microsoft 365 spam filter (EOP) handling.
 ![Exchange Message Trace](screenshots/exchange-message-trace.png)
 > **Figure 2.5: Mail Flow Diagnostics** - Utilizing the Exchange Message Trace utility to perform root-cause analysis on inbound/outbound email routing failures.
+
+### Ticket 6: Security Incident - Compromised Account Response (P1 Critical)
+* **Intake:** ChatOps Escalation. End-user (Kyrie Belita) urgently messaged the **IT Support Center** channel in Microsoft Teams stating: *"I clicked a FedEx link and now my account is sending spam!"* The Teams-to-Jira Webhook automatically ingested the chat and generated a Priority 1 incident.
+* **Resolution & Containment:** 1. Acknowledged the Jira ticket via Teams integration, notifying the user that active containment was underway.
+  2. Navigated to Microsoft Entra ID and executed **Revoke Sessions** to instantly sever the threat actor's active connection across all devices.
+  3. *Hybrid Identity Constraint Bypass:* Due to Password Writeback limitations, executed an administrative password reset directly within on-premise **Active Directory (ADUC)** and forced a Delta Sync (`Start-ADSyncSyncCycle`) to push the new credential hash to Entra ID. 
+  4. Executed **Require re-register MFA** to ensure the compromised device was permanently purged from the authentication loop.
+  5. **Root Cause Audit:** Accessed the Exchange Admin Center to audit Kyrie's **Mail flow / Forwarding** rules. Discovered and deleted a hidden forwarding rule named `...` designed to silently exfiltrate data.
+  6. **ITSM Closure:** Updated the Jira ticket with a full Root Cause Analysis (RCA) and resolved the ticket within SLA.
+
+![ChatOps Incident Intake](screenshots/ticket-created-teams-jira.png)
+> **Figure 2.6a: Active Threat Intake via ChatOps** - Utilizing Microsoft Teams to instantly capture a panicked user report, automatically generate a High Priority Jira incident, and communicate immediate containment steps.
+
+![Entra Revoke Sessions](screenshots/kyrie-sessions-revoked.png)
+![Require Re-Register MFA](screenshots/require-re-register-mfa.png)
+> **Figure 2.6b: Active Threat Containment** - Executing critical Zero Trust protocols in Microsoft Entra ID. Instantly revoking all active authentication tokens (Top) and purging the threat actor's device by forcing an MFA re-registration (Bottom).
+
+![Incident Documentation RCA](screenshots/kyrie-incident-report-teams-jira.png)
+> **Figure 2.6c: Incident RCA & Audit Trail** - Finalizing the security incident by documenting the Root Cause Analysis (RCA) and hybrid constraint bypass within the Jira Internal Notes for compliance auditing.
 
 ---
 
