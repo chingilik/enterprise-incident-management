@@ -4,13 +4,19 @@
 **Location:** Calgary, AB | **Email:** johnalbertbelita@gmail.com  
 **Certifications:** CompTIA Security+ (2026)
 
-> 🚨 **PORTFOLIO DIRECTORY:** For a more streamlined review experience, the core components of this enterprise lab have been separated into two specialized repositories. Please select the portfolio most relevant to the role you are evaluating:
+> 🚨 **PORTFOLIO DIRECTORY:** This repository focuses on Service Desk operations, incident response, and continuous management. To view how this hybrid environment was architected, deployed, and secured from the ground up, please visit the companion repository:
 > 
-> 🏗️ **[1. Hybrid Enterprise Infrastructure (The "Build")](https://github.com/chingilik/hybrid-enterprise-infrastructure)**
-> *For Systems Administration roles. Documents the architecture, automated deployment (WDS/Intune), and security hardening of the hybrid cloud environment.*
-> 
-> 🚒 **[2. Enterprise Incident Management (The "Support")](https://github.com/chingilik/enterprise-incident-management)**
-> *For Service Desk & MSP Support roles. Documents Tier 1/Tier 2 incident resolution, Jira ITSM workflows, SLAs, and Action1 RMM patch management.*
+> 🏗️ **[Hybrid Enterprise Infrastructure (The "Build")](https://github.com/chingilik/hybrid-enterprise-infrastructure)**
+
+## 🧠 Executive Summary & Key Learnings
+
+Operating this simulated Service Desk environment transitioned my skills from building infrastructure to actively supporting and securing the end-user. Through practical, scenario-based troubleshooting, I developed hands-on proficiency in:
+
+* **ITSM & Workflow Automation:** Configured Jira Service Management with strict SLAs (15m Response / 2h Resolution) and integrated Microsoft Teams Webhooks for streamlined "ChatOps" ticket intake, drastically reducing Mean Time To Acknowledge (MTTA).
+* **Incident Response & Security Containment:** Executed real-world Tier 1/Tier 2 resolutions, including a Priority 1 compromised account response requiring immediate session revocation in Entra ID, MFA re-registration, and malicious forwarding rule audits in Exchange Online.
+* **Identity & Lifecycle Management:** Mastered the complex workflows of user onboarding and secure offboarding, including converting terminated accounts to Shared Mailboxes to retain business-critical data while reclaiming M365 licensing.
+* **Remote Monitoring & Management (RMM):** Deployed and utilized Action1 RMM to establish real-time fleet visibility, execute automated CVE vulnerability patching, and silently deploy third-party software across the network.
+* **Advanced Diagnostics & Recovery:** Demonstrated deep administrative familiarity with the Microsoft 365 Admin Center, utilizing Exchange Message Traces for mail routing issues, administrative network shares (C$) for remote diagnostics, and the Second-Stage Recycle Bin for SharePoint/OneDrive data recovery.
 
 ---
 
